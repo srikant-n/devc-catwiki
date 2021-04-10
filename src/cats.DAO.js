@@ -47,9 +47,9 @@ export default class CatsDAO{
           }
     }
 
-    static async insertCat(id, name, image) {
+    static async insertCat(id, name, image, description) {
         try {
-            const insertResponse = await cats.insertOne({_id: id, name, image});
+            const insertResponse = await cats.insertOne({_id: id, name, image, description});
             return insertResponse();
         } catch (e) {
             console.error(`Insert failed: ${e}`);
