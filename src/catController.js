@@ -1,9 +1,8 @@
-const CatsDAO = require("./cats.DAO");
+const CatsDAO = require("./catDao");
 
 const catsController = {
     getTopCats(req,res) {
         CatsDAO.getTopCats().then(data => {
-            console.log(data);
             res.send(data);
         }).catch(err => {
             console.error("Get top cats: " + err);
@@ -11,8 +10,8 @@ const catsController = {
             res.status(500).end();
         });
     },
-    async incrementCatHits(id){
-      return await CatsDAO.incrementCatHits(id);
+    incrementCatHits(id){
+      return CatsDAO.incrementCatHits(id);
     },
     async insertCat(id, name, image, description) {
       try {

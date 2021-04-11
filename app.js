@@ -1,11 +1,11 @@
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
-const cors = require("cors");
-const express = require("express");
+// const cors = require("cors");
 const MongoClient = require("mongodb").MongoClient;
-const catsRouter = require("./src/catRoutes");
-const { default: CatsDAO } = require("./src/cats.DAO");
+const catRouter = require("./src/catRoutes");
+const apiRouter = require("./src/apiRoutes");
+const catsDao = require("./src/catDao");
 
 const port = process.env.PORT || 5000;
 const env = process.env.NODE_ENV || "development";
@@ -20,7 +20,9 @@ const dbPath =
     ? process.env.DB_PATH_DEV
     : process.env.DB_PATH_TEST;
 
-app.use("/", catsRouter);
+app.use("/cats", catRouter);
+app.use("/api", apiRouter);
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
@@ -31,8 +33,10 @@ MongoClient.connect(dbPath, { poolSize: 50, wtimeout: 2500, useNewUrlParser: tru
     process.exit(1);
   })
   .then(async (client) => {
-    await CatsDAO.injectDB(client);
-    app.listen(port, () => {
-      console.log(`listening on port ${port}`);
-    });
+    await catsDao.injectDB(client);
+    console.log("DB Connected");
   });
+
+module.exports = app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
