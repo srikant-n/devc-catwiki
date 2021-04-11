@@ -1,12 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-
-const app = styled.div`
-  margin: 10px;
-`;
+import { Container } from "react-bootstrap";
+import "./App.scss";
 
 function App() {
-  return <app>Cat Wiki</app>;
+  return <Container>Cat Wiki</Container>;
 }
 
 export default App;

@@ -10,10 +10,11 @@ module.exports = {
     rules: [
       { test: /\.js$|.jsx$/i, exclude: /node_modules/, loader: "babel-loader" }, // Babel for JSX
       {
-        test: /\.css$/i,
+        test: /\.scss$/i,
         use: [
           "style-loader",
           { loader: "css-loader", options: { sourceMap: true } },
+          { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
     ],

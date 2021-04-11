@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$|.jsx$/i, exclude: /node_modules/, loader: "babel-loader" }, // Babel for JSX
-      { test: /\.css$/i, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+      { test: /\.scss$/i, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
     ],
   },
   plugins: [
