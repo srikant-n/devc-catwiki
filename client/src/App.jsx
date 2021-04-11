@@ -1,8 +1,12 @@
 import React from "react";
-import "./App.scss";
+import styled from "styled-components";
+
+const app = styled.div`
+  margin: 10px;
+`;
 
 function App() {
-  return <div className="app">Cat Wiki</div>;
+  return <app>Cat Wiki</app>;
 }
 
 export default App;
