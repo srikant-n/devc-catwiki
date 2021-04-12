@@ -8,8 +8,19 @@ module.exports = {
   output: { filename: "[name].js", path: path.resolve(__dirname, "dist") },
   module: {
     rules: [
-      { test: /\.js$|.jsx$/i, exclude: /node_modules/, loader: "babel-loader" }, // Babel for JSX
-      { test: /\.scss$/i, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
+      {
+        test: /\.js$|.jsx$/i,
+        exclude: /node_modules/,
+        resolve: {
+          extensions: [".js", ".jsx"],
+        },
+        loader: "babel-loader",
+      }, // Babel for JSX
+      { test: /\.css$/i, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"],
+      },
     ],
   },
   plugins: [

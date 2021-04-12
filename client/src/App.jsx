@@ -1,9 +1,17 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import "./App.scss";
+import styled from "styled-components";
+import Logo from "./components/Logo";
+
+const Margin = styled.div`
+  margin: 0 18px;
+`;
 
 function App() {
-  return <Container>Cat Wiki</Container>;
+  return (
+    <Margin>
+      <Logo color="black" />
+    </Margin>
+  );
 }
 
 export default App;
