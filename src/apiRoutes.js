@@ -1,11 +1,13 @@
 const express = require("express");
+
 const apiController = require("./apiController");
+
 const router = express.Router();
 
 // Get breed names based on search
-router.get("/breeds/search/:query", apiController.getBreedNames);
-router.get("/breeds/search/", apiController.getBreedNames);
+router.get("/search/:query", apiController.getBreedNames);
+router.get("/search/", apiController.getBreedNames);
 // Get data for a breed
-router.get("/breeds/:id", apiController.getBreedData);
+router.get("/:id", apiController.getBreedData);
 
 module.exports = router;

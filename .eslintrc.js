@@ -8,5 +8,7 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
+    "no-console": "off",
+    "no-nest-ternary": "false",
   },
 };

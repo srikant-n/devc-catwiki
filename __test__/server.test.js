@@ -1,9 +1,12 @@
-const axios = require("axios");
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-undef */
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const expect = chai.expect;
+const { MongoClient } = require("mongodb");
+
+const { expect } = chai;
 const app = require("../app");
-const MongoClient = require("mongodb").MongoClient;
 
 chai.use(chaiHttp);
 
@@ -35,7 +38,7 @@ const topCats = [
 
 describe("Server API tests", () => {
   before(async () => {
-     await MongoClient.connect(process.env.DB_PATH_TEST, {
+    await MongoClient.connect(process.env.DB_PATH_TEST, {
       poolSize: 50,
       wtimeout: 2500,
       useNewUrlParser: true,
@@ -59,7 +62,7 @@ describe("Server API tests", () => {
       .send()
       .then((res) => {
         expect(res).to.have.status(200);
-        data = res.body;
+        const data = res.body;
         expect(data).to.have.lengthOf(3);
         expect(data[0]._id).to.equal(topCats[2]._id);
         expect(data[1]._id).to.equal(topCats[1]._id);
@@ -73,10 +76,10 @@ describe("Server API tests", () => {
   it("gets breeds based on search query", () => {
     return chai
       .request(app)
-      .get("/api/breeds/search/ba")
+      .get("/breeds/search/ba")
       .then((res) => {
         expect(res).to.have.status(200);
-        data = res.body;
+        const data = res.body;
         expect(data).to.have.lengthOf(4);
         expect(data[0]).to.have.property("id");
         expect(data[0]).to.have.property("name");
@@ -91,10 +94,10 @@ describe("Server API tests", () => {
     const q = "";
     return chai
       .request(app)
-      .get("/api/breeds/search/" + q)
+      .get(`/breeds/search/${q}`)
       .then((res) => {
         expect(res).to.have.status(200);
-        data = res.body;
+        const data = res.body;
         expect(data).to.have.lengthOf(0);
       })
       .catch((err) => {
@@ -105,11 +108,11 @@ describe("Server API tests", () => {
   it("gets data for Bengal cats on selecting Bengal breed", () => {
     return chai
       .request(app)
-      .get("/api/breeds/beng")
+      .get("/breeds/beng")
       .send()
       .then((res) => {
         expect(res).to.have.status(200);
-        data = res.body;
+        const data = res.body;
         expect(data.id).to.equal("beng");
         expect(data.name).to.deep.equal("Bengal");
         expect(data.images).to.be.an("array");
@@ -126,7 +129,7 @@ describe("Server API tests", () => {
       .send()
       .then((res) => {
         expect(res).to.have.status(200);
-        data = res.body;
+        const data = res.body;
         expect(data).to.have.lengthOf(4);
         expect(data[0]._id).to.equal(topCats[2]._id);
         expect(data[1]._id).to.equal(topCats[1]._id);
