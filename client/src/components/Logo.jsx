@@ -5,9 +5,7 @@ import { ReactComponent as LogoSvg } from "../images/CatwikiLogo.svg";
 /**
  * Logo
  */
-const Logo = styled.div.attrs((props) => ({
-  children: [<LogoSvg key="logo" fill={props.color ? props.color : "black"} />],
-}))`
+const Logo = styled(LogoSvg)`
   width: 128px;
   height: 43px;
   margin: 12px 0;

@@ -72,9 +72,9 @@ const SearchButton = styled.input.attrs(() => ({ type: "button", value: "Search"
 /**
  * Search Icon
  */
-const SearchIcon = styled.div.attrs(() => ({
-  children: [<SearchSvg key="search-icon" width="17" height="17" viewBox="0 0 24 24" />],
-}))`
+const SearchIcon = styled(SearchSvg ? SearchSvg : SearchDiv)`
+  width: 17px;
+  height: 17px;
   position: absolute;
   right: 10px;
   top: 15px;
@@ -86,7 +86,9 @@ const SearchIcon = styled.div.attrs(() => ({
 
   @media (min-width: 900px) {
     top: 21px;
-    right: 15px;
+    right: 17px;
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -192,8 +194,8 @@ function SearchBar(props) {
   return (
     <div>
       <SearchDiv>
-        <SearchBox value={search} onChange={onEnterSearchText} />
-        <SearchButton onClick={() => setShowModal(true)} />
+        <SearchBox value={search} onChange={onEnterSearchText} aria-label="Search for breed" />
+        <SearchButton onClick={() => setShowModal(true)} aria-label="Search button" />
         <SearchIcon />
         {/* Display only if there are results */}
         {results.length > 0 && (
@@ -208,7 +210,12 @@ function SearchBar(props) {
           <ModalContainer>
             <CloseButton onClick={() => setShowModal(false)} />
             <SearchDiv width="100%">
-              <SearchBox showInMobile value={search} onChange={onEnterSearchText} />
+              <SearchBox
+                showInMobile
+                value={search}
+                onChange={onEnterSearchText}
+                aria-label="Search for breed"
+              />
               <SearchIcon />
             </SearchDiv>
             <SearchResultContainer showInMobile>
