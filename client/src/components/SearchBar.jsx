@@ -72,7 +72,7 @@ const SearchButton = styled.input.attrs(() => ({ type: "button", value: "Search"
 /**
  * Search Icon
  */
-const SearchIcon = styled(SearchSvg ? SearchSvg : SearchDiv)`
+const SearchIcon = styled(SearchSvg || SearchDiv)`
   width: 17px;
   height: 17px;
   position: absolute;

@@ -1,11 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
-import heroImg_sm from "../images/HeroImagesm.png";
-import heroImg_md from "../images/HeroImagemd.png";
-import heroImg_lg from "../images/HeroImagelg.png";
+import heroImgW625 from "../images/HeroImagesm.png";
+import heroImgW1248 from "../images/HeroImagemd.png";
+import heroImgW1873 from "../images/HeroImagelg.png";
 import { ReactComponent as LogoSvg } from "../images/CatwikiLogo.svg";
 import SearchBar from "./SearchBar";
-import PropTypes from "prop-types";
 
 /**
  * Main background container
@@ -15,12 +15,12 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   border-radius: 42px 42px 0 0;
-  background: black url(${heroImg_sm}) no-repeat right;
+  background: black url(${heroImgW625}) no-repeat right;
   background-size: contain;
 
   @media (min-width: 700px) {
     padding: 5% 50% 8% 3%;
-    background-image: url(${heroImg_md});
+    background-image: url(${heroImgW1248});
   }
 
   @media (min-width: 1200px) {
@@ -29,7 +29,7 @@ const Container = styled.div`
 
   @media (min-width: 1500px) {
     padding: 115px 50% 145px 108px;
-    background-image: url(${heroImg_lg});
+    background-image: url(${heroImgW1873});
   }
 `;
 
@@ -94,13 +94,13 @@ const Intro = styled.p`
  * Search section with search box
  * @returns Search section with some info and a search box
  */
-function Search(props) {
+function Search({ onClickResult }) {
   return (
     <Container>
       <LogoMobile />
       <Logo />
       <Intro>Get to know more about your cat breed</Intro>
-      <SearchBar onClickResult={props.onClickResult} />
+      <SearchBar onClickResult={onClickResult} />
     </Container>
   );
 }
