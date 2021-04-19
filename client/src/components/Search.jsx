@@ -6,14 +6,12 @@ import heroImgW1248 from "../images/HeroImagemd.png";
 import heroImgW1873 from "../images/HeroImagelg.png";
 import { ReactComponent as LogoSvg } from "../images/CatwikiLogo.svg";
 import SearchBar from "./SearchBar";
+import PaddedContainer from "./PaddedContainer";
 
 /**
  * Main background container
  */
-const Container = styled.div`
-  padding: 21px 50% 24px 29px;
-  box-sizing: border-box;
-  width: 100%;
+const Container = styled(PaddedContainer)`
   border-radius: 42px 42px 0 0;
   background: black url(${heroImgW625}) no-repeat right;
   background-size: contain;
