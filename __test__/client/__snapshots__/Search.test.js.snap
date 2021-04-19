@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search section tests renders correctly 1`] = `
+<div
+  className="Search__Container-sc-17r0a8z-0 bwaEEc"
+>
+  <div
+    className="Search__LogoMobile-sc-17r0a8z-1 jfljpo"
+  />
+  <div
+    className="Search__Logo-sc-17r0a8z-2 jMkNd"
+  />
+  <p
+    className="Search__Intro-sc-17r0a8z-3 gjyvh"
+  >
+    Get to know more about your cat breed
+  </p>
+  <div>
+    <div
+      className="SearchBar__SearchDiv-seh97w-0 bZIOUM"
+    >
+      <input
+        aria-label="Search for breed"
+        className="SearchBar__SearchBox-seh97w-3 ePYIfl"
+        onChange={[Function]}
+        placeholder="Enter your breed"
+        type="search"
+        value=""
+      />
+      <input
+        aria-label="Search button"
+        className="SearchBar__SearchButton-seh97w-4 dHnqZq"
+        onClick={[Function]}
+        type="button"
+        value="Search"
+      />
+      <div
+        className="SearchBar__SearchDiv-seh97w-0 SearchBar__SearchIcon-seh97w-5 bZIOUM beOldO"
+      />
+    </div>
+  </div>
+</div>
+`;

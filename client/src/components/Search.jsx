@@ -5,6 +5,7 @@ import heroImg_md from "../images/HeroImagemd.png";
 import heroImg_lg from "../images/HeroImagelg.png";
 import { ReactComponent as LogoSvg } from "../images/CatwikiLogo.svg";
 import SearchBar from "./SearchBar";
+import PropTypes from "prop-types";
 
 /**
  * Main background container
@@ -36,7 +37,11 @@ const Container = styled.div`
  * Logo inside the search section on mobile screens
  */
 const LogoMobile = styled.div.attrs(() => ({
-  children: [<LogoSvg key="logo-text" fill="white" width="46" height="19" viewBox="20 10 40 33" />],
+  children: [
+    LogoSvg && (
+      <LogoSvg key="logo-text" fill="white" width="46" height="19" viewBox="20 10 40 33" />
+    ),
+  ],
 }))`
   width: 46px;
   height: 19px;
@@ -50,7 +55,11 @@ const LogoMobile = styled.div.attrs(() => ({
  * Logo inside the search section
  */
 const Logo = styled.div.attrs(() => ({
-  children: [<LogoSvg key="logo-text" fill="white" width="230" height="87" viewBox="0 0 128 43" />],
+  children: [
+    LogoSvg && (
+      <LogoSvg key="logo-text" fill="white" width="230" height="87" viewBox="0 0 128 43" />
+    ),
+  ],
 }))`
   display: none;
   width: 230px;
@@ -85,15 +94,19 @@ const Intro = styled.p`
  * Search section with search box
  * @returns Search section with some info and a search box
  */
-function Search() {
+function Search(props) {
   return (
     <Container>
       <LogoMobile />
       <Logo />
       <Intro>Get to know more about your cat breed</Intro>
-      <SearchBar />
+      <SearchBar onClickResult={props.onClickResult} />
     </Container>
   );
 }
+
+Search.propTypes = {
+  onClickResult: PropTypes.func.isRequired,
+};
 
 export default Search;
