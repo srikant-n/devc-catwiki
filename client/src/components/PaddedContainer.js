@@ -4,7 +4,7 @@ import styled from "styled-components";
  * Main background container
  */
 const PaddedContainer = styled.div`
-  padding: 21px 50% 24px 29px;
+  padding: 21px 29px 24px 29px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 42px;
