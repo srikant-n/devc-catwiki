@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Image = styled.img`
-  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  border-radius: 2.5vw;
   object-fit: cover;
 `;
 

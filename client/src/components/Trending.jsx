@@ -113,35 +113,62 @@ const TopCatsButton = styled.button`
  * Container for cat images.
  */
 const CatImagesContainer = styled.div`
+  /* overflow: hidden; */
+  gap: 2.5vw;
+  max-height: 530px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (min-width: 700px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 const CatName = styled.p`
   color: #291507;
   font-weight: 600;
   font-size: 12px;
+  position: absolute;
+  left: 4px;
+  bottom: -12px;
 
   @media (min-width: 700px) {
     font-size: 14px;
+    bottom: -14px;
   }
 
   @media (min-width: 900px) {
     font-size: 16px;
+    bottom: -18px;
   }
 
   @media (min-width: 1200px) {
     font-size: 18px;
+    bottom: -22px;
   }
 `;
 
 const CatImageAndName = styled.div.attrs((props) => ({
-  children: [<Image src={props.src} alt={props.name} />, <CatName>{props.name}</CatName>],
+  children: [
+    <Image key={`img${props.key}`} src={props.src} alt={props.name} />,
+    <CatName key={`name${props.key}`}>{props.name}</CatName>,
+  ],
 }))`
-  text-align: left;
+  position: relative;
+  padding-bottom: 24px;
+  width: 35vw;
+  height: 35vw;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 700px) {
+    width: 15vw;
+    height: 15vw;
+  }
 `;
 
 function Trending({ onClickTopCats, onClickCat }) {
@@ -156,17 +183,20 @@ function Trending({ onClickTopCats, onClickCat }) {
   }, []);
 
   /**
+   * Display up to 4 cat images.
    * @returns Components to display cat images with name.
    */
   function getCatImages() {
-    return topCats.map((cat) => (
-      <CatImageAndName
-        key={cat.id}
-        src={cat.image}
-        name={cat.name}
-        onClick={() => onClickCat(cat.id)}
-      />
-    ));
+    return topCats
+      .slice(0, 4)
+      .map((cat) => (
+        <CatImageAndName
+          key={cat.id}
+          src={cat.image}
+          name={cat.name}
+          onClick={() => onClickCat(cat.id)}
+        />
+      ));
   }
   // Render only if there are any top cats to show
   return topCats.length > 0 ? (
@@ -177,7 +207,7 @@ function Trending({ onClickTopCats, onClickCat }) {
         <Info>66+ Breeds For you to discover</Info>
         <TopCatsButton onClick={onClickTopCats}>See More &rarr;</TopCatsButton>
       </InfoContainer>
-      <CatImagesContainer>{getCatImages}</CatImagesContainer>
+      <CatImagesContainer>{getCatImages()}</CatImagesContainer>
     </Container>
   ) : (
     <></>

@@ -2,26 +2,26 @@
 
 exports[`Search section tests renders correctly 1`] = `
 <div
-  className="Search__Container-sc-17r0a8z-0 bwaEEc"
+  className="PaddedContainer-v4arrq-0 Search__Container-sc-4xde36-0 bPYXsf csiXQL"
 >
   <div
-    className="Search__LogoMobile-sc-17r0a8z-1 jfljpo"
+    className="Search__LogoMobile-sc-4xde36-1 ilqTLX"
   />
   <div
-    className="Search__Logo-sc-17r0a8z-2 jMkNd"
+    className="Search__Logo-sc-4xde36-2 goxPRu"
   />
   <p
-    className="Search__Intro-sc-17r0a8z-3 gjyvh"
+    className="Search__Intro-sc-4xde36-3 loDeie"
   >
     Get to know more about your cat breed
   </p>
   <div>
     <div
-      className="SearchBar__SearchDiv-seh97w-0 bZIOUM"
+      className="SearchBar__SearchDiv-k2v53i-0 eLtBRT"
     >
       <input
         aria-label="Search for breed"
-        className="SearchBar__SearchBox-seh97w-3 ePYIfl"
+        className="SearchBar__SearchBox-k2v53i-3 ttXei"
         onChange={[Function]}
         placeholder="Enter your breed"
         type="search"
@@ -29,13 +29,13 @@ exports[`Search section tests renders correctly 1`] = `
       />
       <input
         aria-label="Search button"
-        className="SearchBar__SearchButton-seh97w-4 dHnqZq"
+        className="SearchBar__SearchButton-k2v53i-4 gyLhtF"
         onClick={[Function]}
         type="button"
         value="Search"
       />
       <div
-        className="SearchBar__SearchDiv-seh97w-0 SearchBar__SearchIcon-seh97w-5 bZIOUM beOldO"
+        className="SearchBar__SearchDiv-k2v53i-0 SearchBar__SearchIcon-k2v53i-5 eLtBRT jXjVTa"
       />
     </div>
   </div>

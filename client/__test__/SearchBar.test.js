@@ -5,7 +5,6 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import axios from "axios";
 import SearchBar from "../../client/src/components/SearchBar";
-import { expect } from "chai";
 
 jest.mock("axios");
 
