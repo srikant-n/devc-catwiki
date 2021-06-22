@@ -10,7 +10,12 @@ import { getTopCats } from "../api";
  */
 const Container = styled(PaddedContainer)`
   background-color: #e3e1dc;
-  border-radius: 0 0 42px 42px;
+  border-radius: 0 0 21px 21px;
+
+  @media (min-width: 400px) {
+    padding: 21px 29px 24px 29px;
+    border-radius: 0 0 42px 42px;
+  }
 `;
 
 /**
@@ -159,8 +164,8 @@ const CatImageAndName = styled.div.attrs((props) => ({
 }))`
   position: relative;
   padding-bottom: 24px;
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

@@ -12,11 +12,12 @@ import PaddedContainer from "./PaddedContainer";
  * Main background container
  */
 const Container = styled(PaddedContainer)`
-  border-radius: 42px 42px 0 0;
+  border-radius: 24px 24px 0 0;
   background: black url(${heroImgW625}) no-repeat right;
   background-size: contain;
 
   @media (min-width: 700px) {
+    border-radius: 42px 42px 0 0;
     padding: 5% 50% 8% 3%;
     background-image: url(${heroImgW1248});
   }
