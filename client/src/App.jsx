@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
 import Trending from "./components/Trending";
+import WhyCat from "./components/WhyCat";
 
 const Margin = styled.div`
   font-family: "Montserrat", sans-serif;
@@ -27,6 +28,7 @@ function App() {
       <Logo color="black" />
       <Search onClickResult={openCatBreedPage} />
       <Trending onClickCat={openCatBreedPage} onClickTopCats={openTopCatsPage} />
+      <WhyCat />
     </Margin>
   );
 }
